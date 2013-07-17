@@ -129,8 +129,11 @@
     <category name="Procedures" custom="PROCEDURE"></category>
     </xml>
 
-
+    <script src="./js/yabble.js"></script>
+    <script src="./js/gamejs.min.js"></script>
     <script>
+      require.setModuleRoot('./robosim/');
+      require.run('main')
       Blockly.inject(document.getElementById('blocklyDiv'),
           {path: 'blockly/', toolbox: document.getElementById('toolbox')});
     </script>
