@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blocxer: One day, this will be a robot simulator</title>
+  <script type="text/javascript" src="blockly/blockly_compressed.js"></script>
+  <script type="text/javascript" src="blockly/language/en/_messages.js"></script>
+  <script type="text/javascript" src="blockly/language/common/control.js"></script>
+  <script type="text/javascript" src="blockly/language/common/logic.js"></script>
+  <script type="text/javascript" src="blockly/language/common/math.js"></script>
+  <script type="text/javascript" src="blockly/language/common/text.js"></script>
+  <style>
+    body {
+      background-color: white;
+      font-family: sans-serif;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Blocxer: One day, this will be robot simulator</h1>
+  <div id="blockly">
+    <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+
+    <xml id="toolbox" style="display: none">
+      <block type="controls_if"></block>
+      <block type="controls_repeat"></block>
+      <block type="logic_compare"></block>
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+      <block type="text"></block>
+      <block type="text_print"></block>
+    </xml>
+
+    <script>
+      Blockly.inject(document.getElementById('blocklyDiv'),
+          {path: 'blockly/', toolbox: document.getElementById('toolbox')});
+    </script>
+  </div>
+</body>
+</html>
