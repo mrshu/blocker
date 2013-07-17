@@ -21,12 +21,22 @@
       font-weight: normal;
       font-size: 140%;
     }
+
+    #blockly {
+      width: 50%;
+      float: left;
+    }
+
+    #robosim {
+      width: 50%;
+      float: left;
+    }
   </style>
 </head>
 <body>
   <h1 style="text-align: center;">Blocxer: One day, this will be a robot simulator</h1>
   <div id="blockly">
-    <div id="blocklyDiv" style="height: 600px; width: 600px;"></div>
+    <div id="blocklyDiv" style="height: 600px; width: 100%;"></div>
 
   <xml id="toolbox" style="display: none">
     <category name="Control">
@@ -129,6 +139,13 @@
     <category name="Procedures" custom="PROCEDURE"></category>
     </xml>
 
+  </div>
+  <div id="robosim">
+    <div id="gjs-loader">
+      Loading...
+    </div>
+    <div id="canvas"><canvas id="gjs-canvas"></canvas></div>
+  </div>
     <script src="./js/yabble.js"></script>
     <script src="./js/gamejs.min.js"></script>
     <script>
@@ -137,6 +154,5 @@
       Blockly.inject(document.getElementById('blocklyDiv'),
           {path: 'blockly/', toolbox: document.getElementById('toolbox')});
     </script>
-  </div>
 </body>
 </html>
