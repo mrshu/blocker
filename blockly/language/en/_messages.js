@@ -44,6 +44,7 @@ Blockly.MSG_DISABLE_BLOCK = 'Disable Block';
 Blockly.MSG_ENABLE_BLOCK = 'Enable Block';
 Blockly.MSG_HELP = 'Help';
 
+
 // Variable renaming.
 Blockly.MSG_CHANGE_VALUE_TITLE = 'Change value:';
 Blockly.MSG_NEW_VARIABLE = 'New variable...';
