@@ -76,4 +76,12 @@ Robot.prototype.eventResponse = function(event) {
     }
 }
 
+Robot.prototype.moveForward = function(steps) {
+    this.rect.top -= steps;
+}
+
+Robot.prototype.moveBackward = function(steps) {
+    this.rect.top += steps;
+}
+
 exports.Robot = Robot;

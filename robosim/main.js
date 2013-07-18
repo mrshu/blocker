@@ -11,7 +11,9 @@ gamejs.ready(function(){
 
     var display = gamejs.display.setMode([SCREEN_WIDTH, SCREEN_HEIGHT]);
 
-    var robot = new Robot([SCREEN_WIDTH/2, SCREEN_HEIGHT/2], 'img/robot.png');
+    console.log(robot);
+
+    robot = new Robot([SCREEN_WIDTH/2, SCREEN_HEIGHT/2], 'img/robot.png');
 
     gamejs.onEvent(function(event) {
         robot.eventResponse(event);
