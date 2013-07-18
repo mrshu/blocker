@@ -33,6 +33,11 @@
       float: left;
     }
   </style>
+  <script type="text/javascript">
+      var MSG= {};
+      MSG.moveForward = 'move forward';
+      MSG.moveBackward= 'move backwards';
+  </script>
 </head>
 <body>
   <h1 style="text-align: center;">Blocxer: One day, this will be a robot simulator</h1>
@@ -40,6 +45,16 @@
     <div id="blocklyDiv" style="height: 600px; width: 100%;"></div>
 
   <xml id="toolbox" style="display: none">
+    <category name="Robot">
+      <block type="robot_move">
+        <value name="VALUE">
+          <block type="math_number">
+            <title name="NUM">10</title>
+          </block>
+        </value>
+      </block>
+      <block type="robot_move"></block>
+    </category>
     <category name="Control">
       <block type="controls_if"></block>
       <block type="controls_repeat"></block>
@@ -149,9 +164,11 @@
   </div>
     <script src="./js/yabble.js"></script>
     <script src="./js/gamejs.min.js"></script>
+  <script type="text/javascript" src="robosim/robot_blocks.js"></script>
     <script>
       require.setModuleRoot('./robosim/');
       require.run('main')
+
       Blockly.inject(document.getElementById('blocklyDiv'),
           {path: 'blockly/', toolbox: document.getElementById('toolbox')});
     </script>

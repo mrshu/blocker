@@ -76,6 +76,4 @@ Robot.prototype.eventResponse = function(event) {
     }
 }
 
-console.log(Robot);
-
 exports.Robot = Robot;
