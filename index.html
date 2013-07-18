@@ -16,6 +16,7 @@
   <script type="text/javascript" src="blockly/generators/javascript/control.js"></script>
   <script type="text/javascript" src="blockly/generators/javascript/logic.js"></script>
   <script type="text/javascript" src="blockly/generators/javascript/math.js"></script>
+  <script type="text/javascript" src="blockly/generators/javascript/text.js"></script>
   <script type="text/javascript" src="blockly/generators/javascript/lists.js"></script>
   <script type="text/javascript" src="blockly/generators/javascript/colour.js"></script>
   <script type="text/javascript" src="blockly/generators/javascript/variables.js"></script>
@@ -205,10 +206,16 @@
       var robot = {};
       var ticker = {};
 
+      var waiter = function(millis){
+          var time = Date.now();
+          while (Date.now() - time < millis) {
+          }
+      }
+
       require.setModuleRoot('./robosim/');
       require.run('main');
 
-      Blockly.JavaScript.INFINITE_LOOP_TRAP = 'ticker(10);'
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = 'waiter(300);'
       Blockly.inject(document.getElementById('blocklyDiv'),
           {path: 'blockly/', toolbox: document.getElementById('toolbox')});
     </script>
