@@ -34,14 +34,14 @@ Blockly.Language.robot_move = {
             Blockly.Language.robot_move.DIRECTIONS), 'DIR');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(MSG.moveTooltip);
+    this.setTooltip('');
   }
 };
 
 Blockly.Language.robot_move.DIRECTIONS =
     [[MSG.moveForward, 'moveForward'], [MSG.moveBackward, 'moveBackward']];
 
-Blockly.JavaScript.draw_move = function() {
+Blockly.JavaScript.robot_move= function() {
   // Generate JavaScript for moving forward or backwards.
   var value = Blockly.JavaScript.valueToCode(this, 'VALUE',
       Blockly.JavaScript.ORDER_NONE) || '0';

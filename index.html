@@ -12,6 +12,15 @@
   <script type="text/javascript" src="blockly/language/common/variables.js"></script>
   <script type="text/javascript" src="blockly/language/common/lists.js"></script>
   <script type="text/javascript" src="blockly/language/common/procedures.js"></script>
+  <script type="text/javascript" src="blockly/generators/javascript.js"></script>
+  <script type="text/javascript" src="blockly/generators/javascript/control.js"></script>
+  <script type="text/javascript" src="blockly/generators/javascript/logic.js"></script>
+  <script type="text/javascript" src="blockly/generators/javascript/math.js"></script>
+  <script type="text/javascript" src="blockly/generators/javascript/lists.js"></script>
+  <script type="text/javascript" src="blockly/generators/javascript/colour.js"></script>
+  <script type="text/javascript" src="blockly/generators/javascript/variables.js"></script>
+  <script type="text/javascript" src="blockly/generators/javascript/procedures.js"></script>
+
   <style>
     body {
       background-color: white;
@@ -162,10 +171,20 @@
     </div>
     <div id="canvas"><canvas id="gjs-canvas"></canvas></div>
   </div>
+  <div id="controls">
+    <button onclick="showCode()">Show Code</button>
+  </div>
     <script src="./js/yabble.js"></script>
     <script src="./js/gamejs.min.js"></script>
   <script type="text/javascript" src="robosim/robot_blocks.js"></script>
     <script>
+    var showCode = function() {
+      var code = Blockly.Generator.workspaceToCode('JavaScript');
+      // Strip out serial numbers.
+      code = code.replace(/(,\s*)?'\d+'\)/g, ')');
+      alert(code);
+    };
+
       require.setModuleRoot('./robosim/');
       require.run('main')
 
