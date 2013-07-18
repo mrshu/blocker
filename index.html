@@ -203,10 +203,12 @@
       };
 
       var robot = {};
+      var ticker = {};
 
       require.setModuleRoot('./robosim/');
       require.run('main');
 
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = 'ticker(10);'
       Blockly.inject(document.getElementById('blocklyDiv'),
           {path: 'blockly/', toolbox: document.getElementById('toolbox')});
     </script>

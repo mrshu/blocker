@@ -5,6 +5,7 @@ var Robot = function(rect, img) {
 
    Robot.superConstructor.apply(this, arguments);
    this.angle = 0;
+   this.delay = 0;
    this.dragging = false;
 
    this.originalImage = gamejs.image.load(img);
@@ -15,6 +16,7 @@ var Robot = function(rect, img) {
    this.image = this.originalImage;
    
    this.rect = new gamejs.Rect(rect);
+
 
    return this;
 
