@@ -8,6 +8,8 @@ var SCREEN_WIDTH = 500;
 var SCREEN_HEIGHT = 400;
 
 var display;
+evalWorker = new gamejs.worker.Worker('./eval_worker');
+
 ticker = function(msDuration) {
     display.clear();
     robot.stayIn([SCREEN_WIDTH, SCREEN_HEIGHT]);
@@ -17,6 +19,10 @@ ticker = function(msDuration) {
 function main() {
     display = gamejs.display.setMode([SCREEN_WIDTH, SCREEN_HEIGHT]);
     robot = new Robot([SCREEN_WIDTH/2, SCREEN_HEIGHT/2], 'img/robot.png');
+
+    evalWorker.onEvent(function(event){
+        eval(event.code);  
+    });
 
     gamejs.onEvent(function(event) {
         robot.eventResponse(event);

@@ -189,22 +189,19 @@
 
       var runCode = function() {
         var code = Blockly.Generator.workspaceToCode('JavaScript');
+        Blockly.mainWorkspace.traceOn(true);
         // Strip out serial numbers.
         code = code.replace(/(,\s*)?'\d+'\)/g, ')');
 
-        try {
-          eval(code);
-        } catch (e) {
-          // Null is thrown for infinite loop.
-          // Otherwise, abnormal termination is a user error.
-          if (e !== null) {
-            alert(e);
-          }
-        }
+        evalWorker.post({
+          todo: 'eval',
+          code: code
+        });
       };
 
       var robot = {};
       var ticker = {};
+      var evalWorker = {};
 
       var waiter = function(millis){
           var time = Date.now();
