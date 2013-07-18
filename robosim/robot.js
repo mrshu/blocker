@@ -1,21 +1,25 @@
 var gamejs = require('gamejs');
 var draw = require('gamejs/draw');
 
-var Robot = function(rect) {
-   // call superconstructor
+var Robot = function(rect, img) {
 
    Robot.superConstructor.apply(this, arguments);
-   this.rotation = rotation;
-   this.color = color;
+   this.angle = 0;
    this.dragging = false;
 
-   this.originalImage = new gamejs.Surface(dims);
+   this.originalImage = gamejs.image.load(img);
+   var dims = this.originalImage.getSize();
 
    this.radius = dims[0]/2;
    
+   this.image = this.originalImage;
+   
    this.rect = new gamejs.Rect(rect);
+
    return this;
+
 };
+
 // inherit (actually: set prototype)
 gamejs.utils.objects.extend(Robot, gamejs.sprite.Sprite);
 Robot.prototype.update = function(msDuration) {
@@ -71,5 +75,7 @@ Robot.prototype.eventResponse = function(event) {
         }
     }
 }
+
+console.log(Robot);
 
 exports.Robot = Robot;
