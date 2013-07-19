@@ -194,15 +194,13 @@
         // Strip out serial numbers.
         code = code.replace(/(,\s*)?'\d+'\)/g, ')');
 
-        evalWorker.post({
-          todo: 'eval',
-          code: code
-        });
+        evaler(code);
+
       };
 
       var robot = {};
       var ticker = {};
-      var evalWorker = {};
+      var evaler = {};
 
       var waiter = function(millis){
           var time = Date.now();

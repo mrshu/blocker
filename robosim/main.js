@@ -8,7 +8,11 @@ var SCREEN_WIDTH = 500;
 var SCREEN_HEIGHT = 400;
 
 var display;
-evalWorker = new gamejs.worker.Worker('./eval_worker');
+
+var evalWorker = {};
+evaler = function(code) {
+    evalWorker.post({todo: code});
+}
 
 ticker = function(msDuration) {
     display.clear();
@@ -20,15 +24,26 @@ function main() {
     display = gamejs.display.setMode([SCREEN_WIDTH, SCREEN_HEIGHT]);
     robot = new Robot([SCREEN_WIDTH/2, SCREEN_HEIGHT/2], 'img/robot.png');
 
-    evalWorker.onEvent(function(event){
-        eval(event.code);  
-    });
+
+   evalWorker = new gamejs.worker.Worker('./evaler');
+
+   evalWorker.onEvent(function(event) {
+       eval(event.code);
+   });
+
+   evalWorker.onError(function(data) {
+      gamejs.log('worker threw an exception', data);
+   });
+
+
 
     gamejs.onEvent(function(event) {
         robot.eventResponse(event);
     });
 
-    gamejs.onTick(ticker);
+    gamejs.onTick(function(msDuration){
+       ticker();
+    });
 }
 
 gamejs.ready(main);
