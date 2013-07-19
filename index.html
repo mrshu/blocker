@@ -202,12 +202,6 @@
       var ticker = {};
       var evaler = {};
 
-      var waiter = function(millis){
-          var time = Date.now();
-          while (Date.now() - time < millis) {
-          }
-      }
-
       require.setModuleRoot('./robosim/');
       require.run('main');
 
