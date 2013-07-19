@@ -25,24 +25,22 @@ function main() {
     robot = new Robot([SCREEN_WIDTH/2, SCREEN_HEIGHT/2], 'img/robot.png');
 
 
-   evalWorker = new gamejs.worker.Worker('./evaler');
+    evalWorker = new gamejs.worker.Worker('./evaler');
 
-   evalWorker.onEvent(function(event) {
-       eval(event.code);
-   });
+    evalWorker.onEvent(function(event) {
+        eval(event.code);
+    });
 
-   evalWorker.onError(function(data) {
-      gamejs.log('worker threw an exception', data);
-   });
-
-
+    evalWorker.onError(function(data) {
+        gamejs.log('worker threw an exception', data);
+    });
 
     gamejs.onEvent(function(event) {
         robot.eventResponse(event);
     });
 
     gamejs.onTick(function(msDuration){
-       ticker();
+        ticker();
     });
 }
 
