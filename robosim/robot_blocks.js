@@ -57,7 +57,8 @@ Blockly.Language.robot_set_speed = {
     this.appendValueInput('VALUE')
         .setCheck(Number)
         .appendTitle(new Blockly.FieldDropdown(
-            Blockly.Language.robot_move.DIRECTIONS), 'DIR');
+            Blockly.Language.robot_set_speed.DIRECTIONS), 'DIR')
+        .appendTitle(MSG.at);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setTooltip('');

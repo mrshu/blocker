@@ -50,6 +50,7 @@
       MSG.moveBackward= 'move backwards';
       MSG.motorSetForward = 'make motor go forward';
       MSG.motorSetBackward= 'make motor go backwards';
+      MSG.at = 'at';
   </script>
 </head>
 <body>
@@ -67,6 +68,14 @@
         </value>
       </block>
       <block type="robot_move"></block>
+      <block type="robot_set_speed">
+        <value name="VALUE">
+          <block type="math_number">
+            <title name="NUM">10</title>
+          </block>
+        </value>
+      </block>
+      <block type="robot_set_speed"></block>
     </category>
     <category name="Control">
       <block type="controls_if"></block>
