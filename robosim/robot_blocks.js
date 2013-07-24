@@ -48,3 +48,29 @@ Blockly.JavaScript.robot_move= function() {
   return 'robot.' + this.getTitleValue('DIR') +
       '(' + value + ', \'' + this.id + '\');\n';
 };
+
+Blockly.Language.robot_set_speed = {
+  // Block for moving forward or backwards.
+  helpUrl: '',
+  init: function() {
+    this.setColour(160);
+    this.appendValueInput('VALUE')
+        .setCheck(Number)
+        .appendTitle(new Blockly.FieldDropdown(
+            Blockly.Language.robot_move.DIRECTIONS), 'DIR');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip('');
+  }
+};
+
+Blockly.Language.robot_set_speed.DIRECTIONS =
+    [[MSG.motorSetForward, 'onFwd'], [MSG.motorSetBackward, 'onRev']];
+
+Blockly.JavaScript.robot_set_speed= function() {
+  // Generate JavaScript for moving forward or backwards.
+  var value = Blockly.JavaScript.valueToCode(this, 'VALUE',
+      Blockly.JavaScript.ORDER_NONE) || '0';
+  return 'robot.' + this.getTitleValue('DIR') +
+      '(' + value + ', \'' + this.id + '\');\n';
+};
