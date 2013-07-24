@@ -59,6 +59,9 @@ Blockly.Language.robot_set_speed = {
         .appendTitle(new Blockly.FieldDropdown(
             Blockly.Language.robot_set_speed.DIRECTIONS), 'DIR')
         .appendTitle(MSG.at);
+    this.appendDummyInput()
+        .appendTitle(MSG.percent)
+    this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setTooltip('');
