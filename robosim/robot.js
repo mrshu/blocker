@@ -86,4 +86,15 @@ Robot.prototype.moveBackward = function(steps) {
     this.rect.top += steps;
 }
 
+Robot.prototype.onFwd = function(speed) {
+    this.speed = speed;
+}
+
+Robot.prototype.onRev = function(speed) {
+    this.speed = -speed;
+}
+
+
+
+
 exports.Robot = Robot;
