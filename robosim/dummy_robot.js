@@ -20,4 +20,8 @@ DummyRobot.prototype.onRev = function (speed) {
     return gamejs.worker.post({code: 'robot.onRev('+speed+');' });
 }
 
+DummyRobot.prototype.wait = function (millis) {
+    return gamejs.worker.post({code: 'waiter('+millis+');' });
+}
+
 exports.DummyRobot = DummyRobot;
