@@ -21,7 +21,8 @@ DummyRobot.prototype.onRev = function (speed) {
 }
 
 DummyRobot.prototype.wait = function (millis) {
-    return gamejs.worker.post({code: 'waiter('+millis+');' });
+    var time = Date.now();
+    while (Date.now() - time < millis) {}
 }
 
 exports.DummyRobot = DummyRobot;

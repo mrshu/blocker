@@ -18,7 +18,7 @@ var handleEvent = function(data) {
         var robot = new DummyRobot();
         var code = data.todo;
 
-        //gamejs.worker.post(data.todo);
+        gamejs.log(data.todo);
 
         try {
             eval(code);
