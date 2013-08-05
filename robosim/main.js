@@ -1,4 +1,5 @@
 var gamejs = require('gamejs');
+var draw = require('gamejs/draw');
 
 var Robot = require('robot').Robot;
 
@@ -16,6 +17,10 @@ evaler = function(code) {
 
 ticker = function(msDuration) {
     display.clear();
+
+    var boundaries = new gamejs.Rect([0, 0, SCREEN_WIDTH, SCREEN_HEIGHT]);
+    draw.rect(display, "#cccccc", boundaries, 4);
+
     robot.stayIn([SCREEN_WIDTH, SCREEN_HEIGHT]);
     robot.draw(display);
 }
@@ -23,7 +28,6 @@ ticker = function(msDuration) {
 function main() {
     display = gamejs.display.setMode([SCREEN_WIDTH, SCREEN_HEIGHT]);
     robot = new Robot([SCREEN_WIDTH/2, SCREEN_HEIGHT/2], 'img/robot.png');
-
 
     evalWorker = new gamejs.worker.Worker('./evaler');
 
