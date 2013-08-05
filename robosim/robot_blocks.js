@@ -60,7 +60,7 @@ Blockly.Language.robot_set_speed = {
             Blockly.Language.robot_set_speed.DIRECTIONS), 'DIR')
         .appendTitle(MSG.at);
     this.appendDummyInput()
-        .appendTitle(MSG.percent)
+        .appendTitle(MSG.percent);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
