@@ -23,14 +23,15 @@ ticker = function(msDuration) {
     robot.draw(display);
 }
 
+evaler = function(code) {
+    code = code + 'robot.stop();';
+    evalWorker.post({todo: code});
+}
+
 function main() {
     display = gamejs.display.setMode([SCREEN_WIDTH, SCREEN_HEIGHT]);
     robot = new Robot([SCREEN_WIDTH/2, SCREEN_HEIGHT/2], 'img/robot.png');
 
-    evaler = function(code) {
-        evalWorker.post({todo: code});
-        robot.onRev(0);
-    }
 
     evalWorker = new gamejs.worker.Worker('./evaler');
 

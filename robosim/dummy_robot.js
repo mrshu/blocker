@@ -25,4 +25,8 @@ DummyRobot.prototype.wait = function (millis) {
     while (Date.now() - time < millis) {}
 }
 
+DummyRobot.prototype.stop = function () {
+    return gamejs.worker.post({code: 'robot.stop();' });
+}
+
 exports.DummyRobot = DummyRobot;
