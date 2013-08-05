@@ -52,6 +52,8 @@
       MSG.motorSetBackward= 'make motor go backwards';
       MSG.at = 'at';
       MSG.percent = '%';
+      MSG.wait = 'wait';
+      MSG.millis = 'milliseconds';
   </script>
 </head>
 <body>
@@ -77,6 +79,13 @@
         </value>
       </block>
       <block type="robot_set_speed"></block>
+      <block type="robot_wait">
+        <value name="VALUE">
+          <block type="math_number">
+            <title name="NUM">10</title>
+          </block>
+        </value>
+      </block>
     </category>
     <category name="Control">
       <block type="controls_if"></block>

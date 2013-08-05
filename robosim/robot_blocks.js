@@ -87,6 +87,8 @@ Blockly.Language.robot_wait = {
     this.appendValueInput('VALUE')
         .setCheck(Number)
         .appendTitle(MSG.wait);
+    this.appendDummyInput()
+        .appendTitle(MSG.millis);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
