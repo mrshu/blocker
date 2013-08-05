@@ -11,9 +11,7 @@ var SCREEN_HEIGHT = 400;
 var display;
 
 var evalWorker = {};
-evaler = function(code) {
-    evalWorker.post({todo: code});
-}
+
 
 ticker = function(msDuration) {
     display.clear();
@@ -28,6 +26,11 @@ ticker = function(msDuration) {
 function main() {
     display = gamejs.display.setMode([SCREEN_WIDTH, SCREEN_HEIGHT]);
     robot = new Robot([SCREEN_WIDTH/2, SCREEN_HEIGHT/2], 'img/robot.png');
+
+    evaler = function(code) {
+        evalWorker.post({todo: code});
+        robot.onRev(0);
+    }
 
     evalWorker = new gamejs.worker.Worker('./evaler');
 
@@ -44,6 +47,7 @@ function main() {
     });
 
     gamejs.onTick(function(msDuration){
+        robot.update(msDuration);
         ticker();
     });
 }

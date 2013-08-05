@@ -26,14 +26,8 @@ var Robot = function(rect, img) {
 gamejs.utils.objects.extend(Robot, gamejs.sprite.Sprite);
 Robot.prototype.update = function(msDuration) {
    // moveIp = move in place
-   this.rect.moveIp(0, this.speed * (msDuration/1000));
-///if (this.rect.top > 600) {
-///   this.speed *= -1;
-///   this.image = gamejs.transform.rotate(this.originalImage, this.rotation + 180);
-///} else if (this.rect.top < 0 ) {
-///   this.speed *= -1;
+   this.rect.moveIp(0, -this.speed * (msDuration/1000));
 ///   this.image = gamejs.transform.rotate(this.originalImage, this.rotation);
-///}
 }
 
 Robot.prototype.mouseOver = function(pos) {
@@ -94,7 +88,8 @@ Robot.prototype.onRev = function(speed) {
     this.speed = -speed;
 }
 
-
-
+Robot.prototype.stop = function() {
+    this.speed = 0;
+}
 
 exports.Robot = Robot;
