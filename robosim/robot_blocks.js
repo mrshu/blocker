@@ -78,3 +78,27 @@ Blockly.JavaScript.robot_set_speed= function() {
   return 'robot.' + this.getTitleValue('DIR') +
       '(' + value + ', \'' + this.id + '\');\n';
 };
+
+Blockly.Language.robot_wait = {
+  // Block for moving forward or backwards.
+  helpUrl: '',
+  init: function() {
+    this.setColour(160);
+    this.appendValueInput('VALUE')
+        .setCheck(Number)
+        .appendTitle(MSG.wait);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip('');
+  }
+};
+
+Blockly.JavaScript.robot_wait = function() {
+  // Generate JavaScript for moving forward or backwards.
+  var value = Blockly.JavaScript.valueToCode(this, 'VALUE',
+      Blockly.JavaScript.ORDER_NONE) || '0';
+  return 'robot.wait(' + value + ', \'' + this.id + '\');\n';
+};
+
+
