@@ -27,7 +27,7 @@ Blockly.Language.robot_move = {
   // Block for moving forward or backwards.
   helpUrl: '',
   init: function() {
-    this.setColour(160);
+    this.setColour(180);
     this.appendValueInput('VALUE')
         .setCheck(Number)
         .appendTitle(new Blockly.FieldDropdown(
@@ -53,7 +53,7 @@ Blockly.Language.robot_set_speed = {
   // Block for moving forward or backwards.
   helpUrl: '',
   init: function() {
-    this.setColour(160);
+    this.setColour(180);
     this.appendValueInput('VALUE')
         .setCheck(Number)
         .appendTitle(new Blockly.FieldDropdown(
@@ -83,7 +83,7 @@ Blockly.Language.robot_wait = {
   // Block for moving forward or backwards.
   helpUrl: '',
   init: function() {
-    this.setColour(160);
+    this.setColour(180);
     this.appendValueInput('VALUE')
         .setCheck(Number)
         .appendTitle(MSG.wait);
