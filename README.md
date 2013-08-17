@@ -8,5 +8,6 @@ Dependencies
 
 *(aka built upon)*
 
-- GameJS
-- Blockly
+- [GameJS](http://gamejs.org)
+- [Blockly](https://code.google.com/p/blockly/)
+
