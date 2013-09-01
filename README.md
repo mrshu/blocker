@@ -10,4 +10,5 @@ Dependencies
 
 - [GameJS](http://gamejs.org)
 - [Blockly](https://code.google.com/p/blockly/)
+- Box2D
 
