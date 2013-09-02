@@ -75,10 +75,12 @@ Robot.prototype.eventResponse = function(event) {
 
 Robot.prototype.moveForward = function(steps) {
     this.rect.top -= steps;
+    this.speed = 0;
 }
 
 Robot.prototype.moveBackward = function(steps) {
     this.rect.top += steps;
+    this.speed = 0;
 }
 
 Robot.prototype.onFwd = function(speed) {
