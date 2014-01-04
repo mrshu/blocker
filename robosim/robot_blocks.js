@@ -103,4 +103,21 @@ Blockly.JavaScript.robot_wait = function() {
   return 'robot.wait(' + value + ', \'' + this.id + '\');\n';
 };
 
+Blockly.Language.robot_stop = {
+  // Block for stopping
+  helpUrl: '',
+  init: function() {
+    this.setColour(180);
+    this.appendDummyInput()
+        .appendTitle(MSG.stop);
+    this.setPreviousStatement(true);
+    this.setTooltip('');
+  }
+};
+
+Blockly.JavaScript.robot_wait = function() {
+  // Generate JavaScript for stopping
+  return 'robot.stop();\n';
+};
+
 
