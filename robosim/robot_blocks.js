@@ -115,7 +115,7 @@ Blockly.Language.robot_stop = {
   }
 };
 
-Blockly.JavaScript.robot_wait = function() {
+Blockly.JavaScript.robot_stop = function() {
   // Generate JavaScript for stopping
   return 'robot.stop();\n';
 };
